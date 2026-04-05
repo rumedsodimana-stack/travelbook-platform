@@ -14,4 +14,4 @@ export const APP_RELEASE = {
     "All live user and operations data stays preserved in Supabase across deployments.",
 } as const;
 
-export const APP_RELEASE_STORAGE_KEY = `paraiso-release-seen:${APP_RELEASE.id}`;
+export const APP_RELEASE_STORAGE_KEY = `travelbook-release-seen:${APP_RELEASE.id}`;

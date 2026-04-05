@@ -30,13 +30,13 @@ export const themes: readonly ThemeDefinition[] = [
   {
     id: "travelbook-dark",
     name: "TravelBook Dark",
-    description: "The official TravelBook deep-ocean dark theme with teal and amber accents.",
+    description: "The official TravelBook dark glassmorphism theme — deep navy with teal and amber accents.",
     preview: ["#07161d", "#14b8a6", "#fbbf24"],
   },
   {
     id: "lagoon-glass",
     name: "Lagoon Glass",
-    description: "Light teal glass panels with warm sand gradients.",
+    description: "Light teal glass look with warm gradients.",
     preview: ["#fefce8", "#d1fae5", "#0d9488"],
   },
   {

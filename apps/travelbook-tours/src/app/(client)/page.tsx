@@ -51,7 +51,7 @@ export default async function ClientPortalPage() {
 
   return (
     <div className="space-y-16 pb-16">
-      <section className="relative overflow-hidden rounded-[2rem] border border-white/20 bg-[#07161d] text-[#f7ead7] shadow-[0_28px_70px_-34px_rgba(7,22,29,0.95)]">
+      <section className="relative overflow-hidden rounded-[2rem] border border-white/20 bg-[#12343b] text-[#f7ead7] shadow-[0_28px_70px_-34px_rgba(18,52,59,0.95)]">
         <div className="absolute inset-0">
           <Image
             src={homeHeroScene.imageUrl}
@@ -66,7 +66,7 @@ export default async function ClientPortalPage() {
 
         <div className="relative grid gap-10 px-6 py-10 sm:px-8 sm:py-12 lg:grid-cols-[1.18fr_0.82fr] lg:px-12 lg:py-14">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.28em] text-amber-300 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs uppercase tracking-[0.28em] text-[#efd5aa] backdrop-blur-sm">
               <Sparkles className="h-3.5 w-3.5" />
               Curated island journeys
             </div>
@@ -80,7 +80,7 @@ export default async function ClientPortalPage() {
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="/journey-builder"
-                className="inline-flex items-center gap-2 rounded-full bg-[#f2dfbf] px-6 py-3 text-sm font-semibold text-[#07161d] shadow-[0_16px_38px_-22px_rgba(239,214,174,0.95)] transition hover:bg-[#f7e8cf]"
+                className="inline-flex items-center gap-2 rounded-full bg-[#f2dfbf] px-6 py-3 text-sm font-semibold text-[#17343b] shadow-[0_16px_38px_-22px_rgba(239,214,174,0.95)] transition hover:bg-[#f7e8cf]"
               >
                 {settings.portal.journeyBuilderLabel}
                 <ArrowRight className="h-4 w-4" />
@@ -126,7 +126,7 @@ export default async function ClientPortalPage() {
 
           <div className="grid gap-4">
             <div className="rounded-[1.75rem] border border-white/12 bg-white/10 p-5 backdrop-blur-md">
-              <p className="text-xs uppercase tracking-[0.3em] text-amber-400">
+              <p className="text-xs uppercase tracking-[0.3em] text-[#dcb87b]">
                 Route Notes
               </p>
               <h2 className="mt-3 text-2xl font-semibold text-white">
@@ -150,7 +150,7 @@ export default async function ClientPortalPage() {
                 <Link
                   key={story.title}
                   href={story.href}
-                  className="group overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 text-white shadow-[0_16px_40px_-28px_rgba(20,184,166,0.2)] backdrop-blur-sm transition hover:-translate-y-0.5"
+                  className="group overflow-hidden rounded-[1.5rem] border border-white/12 bg-[#f6ead5]/95 text-stone-900 shadow-[0_16px_40px_-28px_rgba(9,20,24,0.9)] transition hover:-translate-y-0.5"
                 >
                   <div className="grid gap-3 p-3 sm:grid-cols-[112px_1fr] lg:grid-cols-[96px_1fr]">
                     <div className="relative h-28 overflow-hidden rounded-[1.1rem] sm:h-full">
@@ -165,17 +165,17 @@ export default async function ClientPortalPage() {
                     </div>
                     <div className="flex flex-col justify-between gap-3 p-1">
                       <div>
-                        <p className="text-xs uppercase tracking-[0.28em] text-amber-400">
+                        <p className="text-xs uppercase tracking-[0.28em] text-[#8c6a38]">
                           {story.location}
                         </p>
-                        <h3 className="mt-2 text-lg font-semibold tracking-tight text-white">
+                        <h3 className="mt-2 text-lg font-semibold tracking-tight">
                           {story.title}
                         </h3>
-                        <p className="mt-2 text-sm leading-6 text-white/60">
+                        <p className="mt-2 text-sm leading-6 text-stone-600">
                           {story.summary}
                         </p>
                       </div>
-                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-teal-400">
+                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#12343b]">
                         See routes
                         <ArrowRight className="h-4 w-4" />
                       </span>
@@ -192,13 +192,13 @@ export default async function ClientPortalPage() {
         {SERVICE_PILLARS.map(({ icon: Icon, title, text }) => (
           <div
             key={title}
-            className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-[0_18px_44px_-32px_rgba(20,184,166,0.15)] backdrop-blur-xl"
+            className="rounded-[1.75rem] border border-[#ddc8b0] bg-white/70 p-6 shadow-[0_18px_44px_-32px_rgba(43,32,15,0.5)] backdrop-blur-sm"
           >
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-500/20 border border-teal-400/20 text-teal-300">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#12343b] text-[#f4e3c5]">
               <Icon className="h-5 w-5" />
             </div>
-            <h2 className="mt-4 text-lg font-semibold text-white">{title}</h2>
-            <p className="mt-2 text-sm leading-6 text-white/60">{text}</p>
+            <h2 className="mt-4 text-lg font-semibold text-stone-900">{title}</h2>
+            <p className="mt-2 text-sm leading-6 text-stone-600">{text}</p>
           </div>
         ))}
       </section>
@@ -207,16 +207,16 @@ export default async function ClientPortalPage() {
         <section className="space-y-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-xs uppercase tracking-[0.28em] text-amber-400">
+              <p className="text-xs uppercase tracking-[0.28em] text-[#8c6a38]">
                 Featured Journeys
               </p>
-              <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white">
+              <h2 className="mt-2 text-3xl font-semibold tracking-tight text-stone-900">
                 Popular ways to see the island
               </h2>
             </div>
             <Link
               href="/packages"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-teal-400"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#12343b]"
             >
               View every package
               <ArrowRight className="h-4 w-4" />
@@ -235,7 +235,7 @@ export default async function ClientPortalPage() {
                 <Link
                   key={pkg.id}
                   href={`/packages/${pkg.id}`}
-                  className={`group relative overflow-hidden rounded-[2rem] border border-white/25 bg-[#07161d] text-[#f7ead7] shadow-[0_24px_60px_-34px_rgba(7,22,29,0.95)] ${
+                  className={`group relative overflow-hidden rounded-[2rem] border border-white/25 bg-[#12343b] text-[#f7ead7] shadow-[0_24px_60px_-34px_rgba(18,52,59,0.95)] ${
                     index === 0 ? "lg:col-span-2" : ""
                   }`}
                 >
@@ -253,7 +253,7 @@ export default async function ClientPortalPage() {
 
                   <div className="relative flex min-h-[22rem] flex-col justify-between p-6 sm:p-8">
                     <div className="max-w-2xl">
-                      <p className="text-xs uppercase tracking-[0.28em] text-amber-400">
+                      <p className="text-xs uppercase tracking-[0.28em] text-[#e5c48e]">
                         {visual.eyebrow}
                       </p>
                       <h3 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
@@ -266,7 +266,7 @@ export default async function ClientPortalPage() {
                         </span>
                         <span>{pkg.duration}</span>
                         {(pkg.rating ?? 0) > 0 && (
-                          <span className="inline-flex items-center gap-1.5 text-amber-300">
+                          <span className="inline-flex items-center gap-1.5 text-[#f7d895]">
                             <Star className="h-4 w-4 fill-current" />
                             {pkg.rating?.toFixed(1)}
                           </span>
@@ -288,8 +288,8 @@ export default async function ClientPortalPage() {
                           </span>
                         ))}
                       </div>
-                      <div className="rounded-[1.4rem] bg-teal-500/20 border border-teal-400/20 px-4 py-3 text-right text-white backdrop-blur-sm">
-                        <p className="text-xs uppercase tracking-[0.24em] text-teal-300">
+                      <div className="rounded-[1.4rem] bg-[#f5e2c3] px-4 py-3 text-right text-[#12343b]">
+                        <p className="text-xs uppercase tracking-[0.24em] text-[#7d5b2a]">
                           From
                         </p>
                         <p className="mt-1 text-xl font-semibold">
@@ -311,20 +311,20 @@ export default async function ClientPortalPage() {
         id="track-booking"
         className="grid gap-6 scroll-mt-28 lg:grid-cols-[0.92fr_1.08fr]"
       >
-        <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-[0_20px_48px_-34px_rgba(20,184,166,0.15)] backdrop-blur-xl">
+        <div className="overflow-hidden rounded-[2rem] border border-[#ddc8b0] bg-[#f2e2c6] shadow-[0_20px_48px_-34px_rgba(43,32,15,0.55)]">
           <div className="p-6 sm:p-8">
-            <p className="text-xs uppercase tracking-[0.28em] text-amber-400">
+            <p className="text-xs uppercase tracking-[0.28em] text-[#8c6a38]">
               Booking Visibility
             </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-stone-900">
               Track your booking with {brandName}
             </h2>
-            <p className="mt-3 max-w-xl text-sm leading-6 text-white/60">
+            <p className="mt-3 max-w-xl text-sm leading-6 text-stone-700">
               Use your reference or email to reopen your request, check dates,
               and follow the package details after your first enquiry.
             </p>
           </div>
-          <div className="border-t border-white/10 bg-white/5 p-6 sm:p-8">
+          <div className="border-t border-[#d6bf9d] bg-white/50 p-6 sm:p-8">
             <Suspense
               fallback={
                 <div className="h-48 animate-pulse rounded-[1.5rem] bg-white/70" />
@@ -340,7 +340,7 @@ export default async function ClientPortalPage() {
             <Link
               key={scene.title}
               href={scene.href}
-              className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/5 shadow-[0_18px_44px_-32px_rgba(20,184,166,0.15)] backdrop-blur-xl"
+              className="group overflow-hidden rounded-[1.75rem] border border-[#ddc8b0] bg-white/70 shadow-[0_18px_44px_-32px_rgba(43,32,15,0.5)] backdrop-blur-sm"
             >
               <div className="relative aspect-[5/4] overflow-hidden">
                 <Image
@@ -353,16 +353,16 @@ export default async function ClientPortalPage() {
                 />
               </div>
               <div className="p-5">
-                <p className="text-xs uppercase tracking-[0.26em] text-amber-400">
+                <p className="text-xs uppercase tracking-[0.26em] text-[#8c6a38]">
                   {scene.location}
                 </p>
-                <h3 className="mt-2 text-xl font-semibold tracking-tight text-white">
+                <h3 className="mt-2 text-xl font-semibold tracking-tight text-stone-900">
                   {scene.title}
                 </h3>
-                <p className="mt-2 text-sm leading-6 text-white/60">
+                <p className="mt-2 text-sm leading-6 text-stone-600">
                   {scene.summary}
                 </p>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-teal-400">
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#12343b]">
                   Explore this region
                   <ArrowRight className="h-4 w-4" />
                 </span>
@@ -372,17 +372,17 @@ export default async function ClientPortalPage() {
         </div>
       </section>
 
-      <section className="rounded-[2rem] border border-white/10 bg-white/5 px-6 py-6 shadow-[0_18px_42px_-32px_rgba(20,184,166,0.15)] backdrop-blur-xl sm:px-8">
+      <section className="rounded-[2rem] border border-[#ddc8b0] bg-white/65 px-6 py-6 shadow-[0_18px_42px_-32px_rgba(43,32,15,0.5)] backdrop-blur-sm sm:px-8">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-xs uppercase tracking-[0.28em] text-amber-400">
+            <p className="text-xs uppercase tracking-[0.28em] text-[#8c6a38]">
               Planning Rhythm
             </p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-white">
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-stone-900">
               Reserve the route first, tune the details after
             </h2>
           </div>
-          <div className="inline-flex items-center gap-2 rounded-full bg-teal-500 px-4 py-2 text-sm font-semibold text-[#07161d]">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[#12343b] px-4 py-2 text-sm font-semibold text-[#f6ead6]">
             <Clock3 className="h-4 w-4" />
             Flexible follow-up after enquiry
           </div>
