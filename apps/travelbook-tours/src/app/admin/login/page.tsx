@@ -15,49 +15,52 @@ export default function AdminLoginPage() {
   const nextPath = getSafeAdminNextPath(searchParams.get("next"));
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(18,52,59,0.18),_transparent_36%),linear-gradient(180deg,#f7f0e5_0%,#efe5d6_100%)] px-4 py-10 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#07161d] px-4 py-10 sm:px-6 lg:px-8"
+      style={{
+        background: "radial-gradient(circle at 15% 15%, rgba(20,184,166,0.18), transparent 36%), radial-gradient(circle at 85% 80%, rgba(251,191,36,0.12), transparent 30%), linear-gradient(180deg, #07161d 0%, #0a1d26 100%)"
+      }}
+    >
       <div className="mx-auto flex min-h-[calc(100vh-5rem)] max-w-5xl items-center justify-center">
-        <div className="grid w-full overflow-hidden rounded-[2.4rem] border border-white/50 bg-white/70 shadow-[0_40px_120px_-55px_rgba(28,31,36,0.42)] backdrop-blur-xl lg:grid-cols-[1fr_0.92fr]">
-          <div className="hidden flex-col justify-between bg-[#12343b] px-10 py-12 text-[#f7ead7] lg:flex">
+        <div className="grid w-full overflow-hidden rounded-[2.4rem] border border-white/10 bg-white/5 shadow-[0_40px_120px_-55px_rgba(20,184,166,0.25)] backdrop-blur-xl lg:grid-cols-[1fr_0.92fr]">
+          <div className="hidden flex-col justify-between bg-[#07161d]/80 border-r border-white/10 px-10 py-12 text-white lg:flex">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-[#e5c48e]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-teal-400/20 bg-teal-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-teal-300">
                 <ShieldCheck className="h-4 w-4" />
                 Admin Access
               </div>
-              <h1 className="mt-6 text-4xl font-semibold tracking-tight">
+              <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white">
                 Operate bookings, tours, and finance from one place.
               </h1>
-              <p className="mt-4 max-w-md text-sm leading-7 text-[#e5dccd]">
+              <p className="mt-4 max-w-md text-sm leading-7 text-white/60">
                 Sign in with the admin password to open the operations hub and
-                continue managing the live Sri Lanka travel workflow.
+                continue managing your tour operator workflow.
               </p>
             </div>
-
-            <div className="space-y-3 text-sm text-[#e5dccd]">
-              <div className="rounded-[1.4rem] border border-white/10 bg-white/8 px-4 py-4">
+            <div className="space-y-3 text-sm text-white/50">
+              <div className="rounded-[1.4rem] border border-white/10 bg-white/5 px-4 py-4">
                 Protected areas include bookings, supplier data, invoicing,
                 payments, payroll, and settings.
               </div>
-              <div className="rounded-[1.4rem] border border-white/10 bg-white/8 px-4 py-4">
-                Session access now uses an httpOnly admin cookie instead of the
-                previous public redirect shortcut.
+              <div className="rounded-[1.4rem] border border-white/10 bg-white/5 px-4 py-4">
+                Session access uses an httpOnly admin cookie for secure,
+                server-side authentication.
               </div>
             </div>
           </div>
 
-          <div className="px-6 py-8 sm:px-10 sm:py-12">
+          <div className="px-6 py-8 sm:px-10 sm:py-12 bg-[#0a1d26]/60">
             <div className="mx-auto max-w-md">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#ddc8b0] bg-[#fbf7f1] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-[#8c6a38]">
+              <div className="inline-flex items-center gap-2 rounded-full border border-teal-400/20 bg-teal-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-teal-300">
                 <LockKeyhole className="h-4 w-4" />
                 Secure Login
               </div>
-              <h2 className="mt-5 text-3xl font-semibold tracking-tight text-stone-900">
-                Sign in to admin
+              <h2 className="mt-5 text-3xl font-semibold tracking-tight text-white">
+                Sign in to TravelBook Tours
               </h2>
-              <p className="mt-3 text-sm leading-6 text-stone-600">
+              <p className="mt-3 text-sm leading-6 text-white/60">
                 Use the configured admin password to continue.
               </p>
-              <p className="mt-2 text-xs font-medium uppercase tracking-[0.2em] text-stone-400">
+              <p className="mt-2 text-xs font-medium uppercase tracking-[0.2em] text-white/30">
                 Live version v{APP_RELEASE.version}
               </p>
 
@@ -93,7 +96,7 @@ export default function AdminLoginPage() {
                 <div className="space-y-2">
                   <label
                     htmlFor="password"
-                    className="text-sm font-medium text-stone-700"
+                    className="text-sm font-medium text-white/70"
                   >
                     Admin password
                   </label>
@@ -104,12 +107,12 @@ export default function AdminLoginPage() {
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
                     required
-                    className="w-full rounded-[1.2rem] border border-[#ddc8b0] bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-[#12343b] focus:ring-4 focus:ring-[#12343b]/10"
+                    className="w-full rounded-[1.2rem] border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/30 outline-none transition focus:border-teal-400/50 focus:ring-4 focus:ring-teal-500/20"
                   />
                 </div>
 
                 {error ? (
-                  <div className="rounded-[1rem] border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">
+                  <div className="rounded-[1rem] border border-rose-400/20 bg-rose-500/10 px-4 py-3 text-sm text-rose-300">
                     {error}
                   </div>
                 ) : null}
@@ -117,13 +120,13 @@ export default function AdminLoginPage() {
                 <button
                   type="submit"
                   disabled={isPending}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#12343b] px-5 py-3.5 text-sm font-semibold text-[#f6ead6] shadow-[0_18px_48px_-28px_rgba(18,52,59,0.92)] transition hover:bg-[#0f2b31] disabled:cursor-not-allowed disabled:opacity-70"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-teal-500 px-5 py-3.5 text-sm font-semibold text-[#07161d] shadow-[0_18px_48px_-28px_rgba(20,184,166,0.7)] transition hover:bg-teal-400 disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {isPending ? "Signing in…" : "Enter admin"}
                   <ArrowRight className="h-4 w-4" />
                 </button>
 
-                <div className="rounded-[1rem] border border-[#e6dac6] bg-[#fbf7f1] px-4 py-3 text-sm text-stone-600">
+                <div className="rounded-[1rem] border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/50">
                   After login, users are notified about the current deployed
                   version once for this release, and all live booking data stays
                   preserved.

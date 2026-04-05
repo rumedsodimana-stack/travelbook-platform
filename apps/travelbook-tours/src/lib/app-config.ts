@@ -20,39 +20,39 @@ const IS_VERCEL = process.env.VERCEL === "1";
 
 export const DEFAULT_APP_SETTINGS: AppSettings = {
   company: {
-    displayName: "Paraíso Ceylon Tours",
-    companyName: "Paraíso Ceylon Tours",
-    tagline: "Crafted journeys across Sri Lanka",
+    displayName: "TravelBook Tours",
+    companyName: "TravelBook Tours",
+    tagline: "Create. Package. Sell.",
     address: "Colombo, Sri Lanka",
     phone: "+94 11 234 5678",
-    email: "hello@paraisoceylontours.com",
+    email: "hello@travelbooktours.com",
     logoUrl: "",
   },
   portal: {
     topBannerText:
-      "Sri Lanka itineraries shaped across coast, culture, and tea country",
-    topBannerSubtext: "Colombo arrival support · Flexible private routing",
-    locationBadgeText: "Colombo to the south coast",
+      "The operator portal for tour organizers — build and sell travel packages on TravelBook",
+    topBannerSubtext: "Create packages · Manage bookings · Grow your business",
+    locationBadgeText: "Tour operators worldwide",
     mobileMenuDescription:
-      "Sri Lanka routes built for culture, hill country, coast, and safari stays.",
+      "Build, package, and sell travel experiences from one operator portal.",
     clientPortalDescription:
-      "A client portal for tracking Sri Lanka routes, comparing package styles, and keeping booking details close at hand.",
+      "The operator portal for tour organizers — build and sell travel packages on TravelBook.",
     footerExploreTitle: "Explore",
     footerContactTitle: "Contact",
-    footerBaseTitle: "Base",
-    footerBaseDescription: "Routing support from arrival to departure",
-    footerCtaEyebrow: "Plan With Context",
+    footerBaseTitle: "Platform",
+    footerBaseDescription: "Operator tools from package creation to departure",
+    footerCtaEyebrow: "Start Selling",
     footerCtaTitle:
-      "Build a Sri Lanka trip that flows from arrival to final beach day",
+      "Build travel packages your clients will love — and sell them on TravelBook",
     footerCtaDescription:
-      "Use the portal to compare routes, lock in accommodation style, and keep your booking visible after checkout.",
+      "Use the portal to create tour packages, manage bookings, and keep your operation running smoothly.",
     packagesLabel: "Tour packages",
     journeyBuilderLabel: "Build your journey",
     myBookingsLabel: "My bookings",
     trackBookingLabel: "Track booking",
     customJourneyGuidanceFee: 150,
     customJourneyGuidanceLabel: "Route design & local guidance",
-    copyrightSuffix: "Sri Lanka",
+    copyrightSuffix: "TravelBook",
   },
   ai: {
     enabled: false,

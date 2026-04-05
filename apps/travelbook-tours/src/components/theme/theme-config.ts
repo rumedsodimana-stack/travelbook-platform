@@ -1,8 +1,9 @@
-export const themeStorageKey = "paraiso-theme";
+export const themeStorageKey = "travelbook-theme";
 
-export const defaultThemeId = "lagoon-glass";
+export const defaultThemeId = "travelbook-dark";
 
 export const themeIds = [
+  "travelbook-dark",
   "lagoon-glass",
   "desert-sun",
   "sakura-mist",
@@ -27,9 +28,15 @@ export type ThemeDefinition = {
 
 export const themes: readonly ThemeDefinition[] = [
   {
+    id: "travelbook-dark",
+    name: "TravelBook Dark",
+    description: "The official TravelBook deep-ocean dark theme with teal and amber accents.",
+    preview: ["#07161d", "#14b8a6", "#fbbf24"],
+  },
+  {
     id: "lagoon-glass",
     name: "Lagoon Glass",
-    description: "The current Paraiso teal glass look, kept as the default.",
+    description: "Light teal glass panels with warm sand gradients.",
     preview: ["#fefce8", "#d1fae5", "#0d9488"],
   },
   {

@@ -4,28 +4,54 @@
 :root {
   --background: rgb(var(--canvas-rgb));
   --foreground: rgb(var(--text-base-rgb));
-  --canvas-rgb: 250 250 249;
-  --surface-rgb: 255 255 255;
-  --surface-strong-rgb: 255 255 255;
-  --surface-muted-rgb: 245 245 244;
+  /* TravelBook Dark — forced dark base */
+  --canvas-rgb: 7 22 29;
+  --surface-rgb: 10 29 38;
+  --surface-strong-rgb: 14 36 48;
+  --surface-muted-rgb: 12 32 42;
   --border-rgb: 255 255 255;
-  --text-base-rgb: 68 64 60;
-  --text-strong-rgb: 28 25 23;
-  --text-muted-rgb: 120 113 108;
-  --text-inverse-rgb: 250 250 249;
-  --accent-rgb: 13 148 136;
-  --accent-strong-rgb: 15 118 110;
-  --accent-soft-rgb: 204 251 241;
-  --accent-border-rgb: 94 234 212;
-  --secondary-soft-rgb: 254 243 199;
+  --text-base-rgb: 204 228 228;
+  --text-strong-rgb: 236 248 248;
+  --text-muted-rgb: 99 155 155;
+  --text-inverse-rgb: 7 22 29;
+  --accent-rgb: 20 184 166;
+  --accent-strong-rgb: 13 148 132;
+  --accent-soft-rgb: 13 60 56;
+  --accent-border-rgb: 45 212 191;
+  --secondary-soft-rgb: 251 191 36;
   --ring-rgb: 45 212 191;
-  --shadow-rgb: 148 163 184;
-  --gradient-a-rgb: 254 252 232;
-  --gradient-b-rgb: 236 253 245;
-  --gradient-c-rgb: 240 249 255;
-  --gradient-d-rgb: 254 243 199;
-  --orb-1-rgb: 13 148 136;
-  --orb-2-rgb: 245 158 11;
+  --shadow-rgb: 20 184 166;
+  --gradient-a-rgb: 7 22 29;
+  --gradient-b-rgb: 10 29 38;
+  --gradient-c-rgb: 8 25 34;
+  --gradient-d-rgb: 10 29 38;
+  --orb-1-rgb: 20 184 166;
+  --orb-2-rgb: 251 191 36;
+}
+
+html[data-theme="travelbook-dark"] {
+  --canvas-rgb: 7 22 29;
+  --surface-rgb: 10 29 38;
+  --surface-strong-rgb: 14 36 48;
+  --surface-muted-rgb: 12 32 42;
+  --border-rgb: 255 255 255;
+  --text-base-rgb: 204 228 228;
+  --text-strong-rgb: 236 248 248;
+  --text-muted-rgb: 99 155 155;
+  --text-inverse-rgb: 7 22 29;
+  --accent-rgb: 20 184 166;
+  --accent-strong-rgb: 13 148 132;
+  --accent-soft-rgb: 13 60 56;
+  --accent-border-rgb: 45 212 191;
+  --secondary-soft-rgb: 251 191 36;
+  --ring-rgb: 45 212 191;
+  --shadow-rgb: 20 184 166;
+  --gradient-a-rgb: 7 22 29;
+  --gradient-b-rgb: 10 29 38;
+  --gradient-c-rgb: 8 25 34;
+  --gradient-d-rgb: 10 29 38;
+  --orb-1-rgb: 20 184 166;
+  --orb-2-rgb: 251 191 36;
 }
 
 html[data-theme="lagoon-glass"] {
@@ -38,19 +64,19 @@ html[data-theme="lagoon-glass"] {
   --text-strong-rgb: 28 25 23;
   --text-muted-rgb: 120 113 108;
   --text-inverse-rgb: 250 250 249;
-  --accent-rgb: 13 148 136;
-  --accent-strong-rgb: 15 118 110;
+  --accent-rgb: 20 184 166;
+  --accent-strong-rgb: 13 148 132;
   --accent-soft-rgb: 204 251 241;
   --accent-border-rgb: 94 234 212;
-  --secondary-soft-rgb: 254 243 199;
+  --secondary-soft-rgb: 251 191 36;
   --ring-rgb: 45 212 191;
   --shadow-rgb: 148 163 184;
   --gradient-a-rgb: 254 252 232;
   --gradient-b-rgb: 236 253 245;
   --gradient-c-rgb: 240 249 255;
   --gradient-d-rgb: 254 243 199;
-  --orb-1-rgb: 13 148 136;
-  --orb-2-rgb: 245 158 11;
+  --orb-1-rgb: 20 184 166;
+  --orb-2-rgb: 251 191 36;
 }
 
 html[data-theme="desert-sun"] {
