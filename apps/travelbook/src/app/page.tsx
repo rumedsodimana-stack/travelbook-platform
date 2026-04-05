@@ -18,6 +18,7 @@ import { OnboardingSetupView } from '@/views/OnboardingSetupView';
 import { PostDetailView } from '@/views/PostDetailView';
 import { ProfileView } from '@/views/ProfileView';
 import { SearchView } from '@/views/SearchView';
+import { RideBookingView } from '@/views/RideBookingView';
 import { SettingsView } from '@/views/SettingsView';
 import { TravelPlannerView } from '@/views/TravelPlannerView';
 import { clearTravelBookSession, getPersistedTravelBookSession, updateStoredTravelBookUser } from '@/services/accountService';
@@ -263,6 +264,10 @@ const ROUTE_META: Partial<Record<AppRoute, { title: string; subtitle: string }>>
   [AppRoute.ADMIN]: {
     title: 'Admin',
     subtitle: 'Admin tools, AI connections, and system monitoring.',
+  },
+  [AppRoute.RIDE_BOOKING]: {
+    title: 'Book a Ride',
+    subtitle: 'Real-time ride booking connected to local TravelBook drivers.',
   },
 };
 
@@ -664,7 +669,19 @@ const AppContent: React.FC = () => {
         )}
 
         {currentRoute === AppRoute.SEARCH && (
-          <SearchView onProfileClick={openProfile} onNavigateToPlanner={openPlanner} onBookClick={openBooking} />
+          <SearchView
+            onProfileClick={openProfile}
+            onNavigateToPlanner={openPlanner}
+            onBookClick={openBooking}
+            onTransportRide={() => setCurrentRoute(AppRoute.RIDE_BOOKING)}
+          />
+        )}
+
+        {currentRoute === AppRoute.RIDE_BOOKING && (
+          <RideBookingView
+            onBack={() => setCurrentRoute(AppRoute.SEARCH)}
+            currentUser={currentUser}
+          />
         )}
 
         {currentRoute === AppRoute.GAMES && (

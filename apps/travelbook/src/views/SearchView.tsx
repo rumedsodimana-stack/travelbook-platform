@@ -16,6 +16,7 @@ interface SearchViewProps {
   onProfileClick: (user: User) => void;
   onNavigateToPlanner: () => void;
   onBookClick?: (business: User) => void;
+  onTransportRide?: () => void;
 }
 
 const CATEGORY_ITEMS = [
@@ -27,7 +28,7 @@ const CATEGORY_ITEMS = [
   { id: 'entertainment', label: 'Entertainment', icon: Sparkles, color: 'text-indigo-400', bg: 'bg-indigo-400/10' },
 ];
 
-export const SearchView: React.FC<SearchViewProps> = ({ onProfileClick, onNavigateToPlanner, onBookClick }) => {
+export const SearchView: React.FC<SearchViewProps> = ({ onProfileClick, onNavigateToPlanner, onBookClick, onTransportRide }) => {
   const [query, setQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [isSearching, setIsSearching] = useState(false);
@@ -126,7 +127,7 @@ export const SearchView: React.FC<SearchViewProps> = ({ onProfileClick, onNaviga
                 return (
                   <button
                     key={item.id}
-                    onClick={() => handleDeepSearch(item.id)}
+                    onClick={() => item.id === 'transport' && onTransportRide ? onTransportRide() : handleDeepSearch(item.id)}
                     className="flex flex-col items-center justify-center gap-3 p-5 bg-white/5 border border-white/10 rounded-[2rem] hover:bg-white/10 hover:border-white/30 transition-all group active:scale-95 shadow-xl"
                   >
                     <div className={`p-4 rounded-2xl ${item.bg} ${item.color} group-hover:scale-110 transition-transform`}>

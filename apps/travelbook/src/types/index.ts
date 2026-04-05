@@ -182,5 +182,6 @@ export enum AppRoute {
   NOTIFICATIONS = 'notifications',
   CHATS = 'chats',
   SETTINGS = 'settings',
-  ADMIN = 'admin'
+  ADMIN = 'admin',
+  RIDE_BOOKING = 'ride_booking'
 }
