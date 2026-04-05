@@ -1,0 +1,38 @@
+{
+  "name": "paraiso-tours",
+  "version": "0.3.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "seed": "node scripts/seed-packages.mjs",
+    "dev:network": "next dev -H 0.0.0.0",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "node --import tsx --test src/**/*.test.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^7.5.0",
+    "@supabase/supabase-js": "^2.99.1",
+    "jspdf": "^4.2.1",
+    "lucide-react": "^0.468.0",
+    "maplibre-gl": "^5.20.2",
+    "next": "16.1.6",
+    "prisma": "^7.5.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "recharts": "^3.8.0",
+    "resend": "^6.9.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "tailwindcss": "^4",
+    "tsx": "^4.20.6",
+    "typescript": "^5"
+  }
+}

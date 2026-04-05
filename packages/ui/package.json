@@ -1,0 +1,8 @@
+{
+  "name": "@travelbook/ui",
+  "version": "1.0.0",
+  "description": "TravelBook shared design system — tokens, components, and utilities",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "files": ["src"]
+}

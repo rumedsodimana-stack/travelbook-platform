@@ -1,0 +1,53 @@
+{
+  "entities": {
+    "Vehicle": {
+      "title": "Vehicle",
+      "description": "A vehicle registered by a provider.",
+      "type": "object",
+      "properties": {
+        "providerId": { "type": "string", "description": "The UID of the provider." },
+        "type": { "type": "string", "enum": ["Car", "Van", "Bus", "Motorcycle"], "description": "The type of vehicle." },
+        "model": { "type": "string", "description": "The model of the vehicle." },
+        "capacity": { "type": "number", "description": "Passenger capacity." },
+        "photoUrl": { "type": "string", "description": "URL of the vehicle photo." },
+        "status": { "type": "string", "enum": ["Pending", "Verified", "Rejected"], "description": "Verification status." },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["providerId", "type", "model", "capacity", "status"]
+    },
+    "RideRequest": {
+      "title": "Ride Request",
+      "description": "A ride request from a traveler.",
+      "type": "object",
+      "properties": {
+        "travelerId": { "type": "string", "description": "The UID of the traveler from the social network." },
+        "travelerName": { "type": "string", "description": "The name of the traveler." },
+        "origin": { "type": "string", "description": "Pickup location." },
+        "destination": { "type": "string", "description": "Drop-off location." },
+        "passengers": { "type": "number", "description": "Number of passengers." },
+        "status": { "type": "string", "enum": ["Open", "Accepted", "Completed", "Cancelled"], "description": "Current status." },
+        "rideType": { "type": "string", "enum": ["standard", "robotaxi"], "description": "Type of ride requested." },
+        "providerId": { "type": "string", "description": "The UID of the provider who accepted the ride." },
+        "fare": { "type": "number", "description": "The cost of the ride." },
+        "pickupLat": { "type": "number", "description": "Pickup latitude." },
+        "pickupLng": { "type": "number", "description": "Pickup longitude." },
+        "dropoffLat": { "type": "number", "description": "Dropoff latitude." },
+        "dropoffLng": { "type": "number", "description": "Dropoff longitude." },
+        "driverLat": { "type": "number", "description": "Driver latitude." },
+        "driverLng": { "type": "number", "description": "Driver longitude." },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["travelerId", "origin", "destination", "passengers", "status"]
+    }
+  },
+  "firestore": {
+    "/vehicles/{vehicleId}": {
+      "schema": "Vehicle",
+      "description": "Collection of provider vehicles."
+    },
+    "/rideRequests/{requestId}": {
+      "schema": "RideRequest",
+      "description": "Collection of ride requests from travelers."
+    }
+  }
+}

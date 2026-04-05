@@ -1,0 +1,18 @@
+{
+  "name": "travelbook-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TravelBook Platform — unified monorepo for all TravelBook portals",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:travelbook": "npm run dev --workspace=apps/travelbook",
+    "dev:rides": "npm run dev --workspace=apps/travelbook-rides",
+    "dev:hotel-os": "npm run dev --workspace=apps/travelbook-hotel-os",
+    "dev:tours": "npm run dev --workspace=apps/travelbook-tours",
+    "build:all": "npm run build --workspaces --if-present",
+    "lint:all": "npm run lint --workspaces --if-present"
+  }
+}
