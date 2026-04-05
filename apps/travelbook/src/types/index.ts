@@ -183,5 +183,61 @@ export enum AppRoute {
   CHATS = 'chats',
   SETTINGS = 'settings',
   ADMIN = 'admin',
-  RIDE_BOOKING = 'ride_booking'
+  RIDE_BOOKING = 'ride_booking',
+  AI_PLANNER = 'ai_planner'
+}
+
+// ─── AI Trip Planner types ────────────────────────────────────────────────────
+
+export type PlanItemCategory =
+  | 'visa'
+  | 'flight'
+  | 'accommodation'
+  | 'transport'
+  | 'activity'
+  | 'dining'
+  | 'event'
+  | 'entertainment';
+
+export interface PlanItemOption {
+  id: string;
+  title: string;
+  subtitle: string;
+  price: number;
+  currency: string;
+  rating?: number;
+  reviewCount?: number;
+  duration?: number;       // minutes
+  imageUrl?: string;
+  tags?: string[];
+  provider?: string;
+  details?: Record<string, string>;
+}
+
+export interface PlanItem {
+  id: string;
+  category: PlanItemCategory;
+  scheduledAt: string;     // ISO datetime string
+  endAt?: string;
+  durationMinutes: number;
+  selectedOptionIndex: number;
+  options: PlanItemOption[];
+  notes?: string;
+  isRequired?: boolean;
+  travelTimeTo?: number;   // minutes
+}
+
+export interface TripPlan {
+  id: string;
+  destination: string;
+  originCity: string;
+  startDate: string;
+  endDate: string;
+  budget: number;
+  budgetCurrency: string;
+  travellers: number;
+  items: PlanItem[];
+  totalEstimatedCost: number;
+  aiSummary: string;
+  createdAt: string;
 }
