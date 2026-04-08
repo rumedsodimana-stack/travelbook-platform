@@ -280,10 +280,10 @@ function buildMockPlan(input: TripPlanInput): TripPlan {
     f.price * input.travellers,
     cur,
     { tags: [i === 0 ? (isLuxury ? 'Business class' : 'Economy Flex') : 'Economy', 'Direct'], duration: f.duration, rating: 4.2 + i * 0.1, reviewCount: 800 + i * 150, provider: f.airline }
-  )), flightOrder[0].duration, 'Book early for best prices. Check baggage allowance.', 30, true);
+  )), flightOrder[0]?.duration ?? 480, 'Book early for best prices. Check baggage allowance.', 30, true);
 
   // ── FIRST NIGHT ACCOMMODATION ─────────────────────────────────────────────
-  cursor = `${input.startDate}T${String(14 + Math.floor(flightOrder[0].duration / 60) % 8).padStart(2, '0')}:00:00.000Z`;
+  cursor = `${input.startDate}T${String(14 + Math.floor((flightOrder[0]?.duration ?? 480) / 60) % 8).padStart(2, '0')}:00:00.000Z`;
   pushItem('accommodation', hotelOrder.map((h, i) => makeOption(
     h.name, `${h.stars}★ · ${h.area}`,
     h.nightlyRate * input.travellers,
@@ -343,14 +343,14 @@ function buildMockPlan(input: TripPlanInput): TripPlan {
   // ── RETURN FLIGHT ─────────────────────────────────────────────────────────
   const returnBase = `${input.endDate}T10:00:00.000Z`;
   cursor = returnBase;
-  const retFlight = flightOrder[0];
+  const retFlight = flightOrder[0] ?? { airline: dest.flights[0].airline, code: 'DEFAULT', duration: 480, price: dest.flights[0].price };
   pushItem('flight', [
     makeOption(`${retFlight.airline} ${retFlight.code.replace(/\d+/, (n) => String(Number(n) + 1))}`,
       `${input.destination} → ${input.originCity}, ${Math.floor(retFlight.duration / 60)}h ${retFlight.duration % 60}m`,
       retFlight.price * input.travellers, cur,
       { tags: ['Return', isLuxury ? 'Business class' : 'Economy Flex'], duration: retFlight.duration, rating: 4.3, reviewCount: 760, provider: retFlight.airline }),
-    makeOption(`${flightOrder[1]?.airline ?? dest.flights[1].airline} (Return)`,
-      `${input.destination} → ${input.originCity}`, flightOrder[1]?.price * input.travellers ?? retFlight.price * 0.9 * input.travellers, cur,
+    makeOption(`${flightOrder[1]?.airline ?? (dest.flights[1]?.airline ?? (dest.flights[0]?.airline ?? 'Partner Airline'))} (Return)`,
+      `${input.destination} → ${input.originCity}`, (flightOrder[1]?.price ?? (retFlight.price * 0.9)) * input.travellers, cur,
       { tags: ['Return', 'Economy'], duration: (flightOrder[1]?.duration ?? retFlight.duration) + 30, rating: 4.1, reviewCount: 540 }),
   ], retFlight.duration, 'Arrive at airport 3 hours before departure.', 0, true);
 

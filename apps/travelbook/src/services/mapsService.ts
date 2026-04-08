@@ -26,8 +26,8 @@ export async function geocode(query: string): Promise<GeoResult[]> {
 
   const data = await res.json();
   return (data.features || []).map((f: any) => ({
-    lat: f.center[1],
-    lng: f.center[0],
-    placeName: f.place_name,
+    lat: f.center?.[1] ?? 0,
+    lng: f.center?.[0] ?? 0,
+    placeName: f.place_name ?? query,
   }));
 }

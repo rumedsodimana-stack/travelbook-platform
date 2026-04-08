@@ -2699,12 +2699,13 @@ const accessLog = [
 
 function AccessControlView() {
   const [lockedDoors, setLockedDoors] = React.useState(0);
-  const unlockedCount = doorsData.filter((d) => d.status !== "locked").length;
-  const alertCount = doorsData.filter((d) => d.status === "propped" || d.status === "offline").length;
 
   React.useEffect(() => {
     setLockedDoors(doorsData.filter((d) => d.status === "locked").length);
   }, []);
+
+  const unlockedCount = doorsData.filter((d) => d.status !== "locked").length;
+  const alertCount = doorsData.filter((d) => d.status === "propped" || d.status === "offline").length;
 
   const getDoorStatusColor = (status: string) => {
     switch (status) {

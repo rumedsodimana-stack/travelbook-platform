@@ -44,7 +44,8 @@ async function getAmadeusToken(): Promise<string> {
 }
 
 function mapAmadeusOffer(offer: any): Flight {
-  const seg = offer.itineraries[0].segments[0];
+  const seg = offer.itineraries?.[0]?.segments?.[0];
+  if (!seg) throw new Error('Invalid Amadeus offer structure: missing itinerary/segments');
   return {
     id: offer.id,
     airline: seg.carrierCode,
@@ -53,10 +54,10 @@ function mapAmadeusOffer(offer: any): Flight {
     destination: seg.arrival.iataCode,
     departureTime: seg.departure.at,
     arrivalTime: seg.arrival.at,
-    duration: offer.itineraries[0].duration,
-    price: parseFloat(offer.price.grandTotal),
-    currency: offer.price.currency,
-    seatsAvailable: offer.numberOfBookableSeats,
+    duration: offer.itineraries?.[0]?.duration ?? 'N/A',
+    price: parseFloat(offer.price?.grandTotal ?? '0'),
+    currency: offer.price?.currency ?? 'USD',
+    seatsAvailable: offer.numberOfBookableSeats ?? 0,
     cabin: offer.travelerPricings?.[0]?.fareDetailsBySegment?.[0]?.cabin || 'ECONOMY',
   };
 }

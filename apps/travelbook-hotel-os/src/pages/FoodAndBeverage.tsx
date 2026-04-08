@@ -91,6 +91,7 @@ function FAndBOverview({ aiEnabled }: { aiEnabled: boolean }) {
 function SmartMenu4D() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [cart, setCart] = useState<{item: any, quantity: number}[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const categories = ["All", "Starters", "Mains", "Desserts", "Beverages"];
 
@@ -119,8 +120,6 @@ function SmartMenu4D() {
   };
 
   const cartTotal = cart.reduce((sum, {item, quantity}) => sum + (item.price * quantity), 0);
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search menu..." />}
@@ -760,6 +759,7 @@ const INITIAL_TABLES: TableInfo[] = [
 function TableManagement() {
   const [tables, setTables] = useState<TableInfo[]>(INITIAL_TABLES);
   const [selected, setSelected] = useState<TableInfo | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const statusCounts = tables.reduce((acc, t) => {
     acc[t.status] = (acc[t.status] || 0) + 1;
@@ -777,8 +777,6 @@ function TableManagement() {
     );
     setSelected(s => s?.id === id ? { ...s, status: (order[(order.indexOf(s.status) + 1) % order.length]) } : s);
   };
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search tables..." />}
@@ -888,6 +886,7 @@ const INITIAL_ROOM_ORDERS: RoomOrder[] = [
 
 function RoomService() {
   const [orders, setOrders] = useState<RoomOrder[]>(INITIAL_ROOM_ORDERS);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const advance = (id: string) => {
     setOrders(os => os.map(o => {
@@ -902,8 +901,6 @@ function RoomService() {
     acc[o.status] = (acc[o.status] || 0) + 1;
     return acc;
   }, {} as Record<string, number>);
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search room service..." />}
@@ -1278,6 +1275,7 @@ function BarManagement() {
     { id: "B003", guest: "R401", items: ["House Special"], total: "$12.00", status: "Open" },
     { id: "B004", guest: "T08", items: ["Mocktail 1", "Mocktail 1", "Iced Tea"], total: "$45.75", status: "On Hold" },
   ]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const openTabs = tabs.filter(t => t.status === "Open").length;
   const revenue = tabs.reduce((sum, t) => {
@@ -1295,8 +1293,6 @@ function BarManagement() {
     { name: "House Special", price: "$12.00" },
     { name: "Smoothie", price: "$6.75" },
   ];
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search bar..." />}

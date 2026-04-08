@@ -64,12 +64,12 @@ export async function getInsuranceQuotes(params: InsuranceSearchParams): Promise
       provider: 'Cover Genius',
       planName: q.policy_name || `Plan ${i + 1}`,
       coverageType: params.coverageType || 'comprehensive',
-      pricePerTraveler: q.price?.amount || 0,
-      totalPrice: (q.price?.amount || 0) * params.travelers,
-      currency: q.price?.currency || 'USD',
-      highlights: q.benefits?.map((b: any) => b.name) || [],
-      maxMedical: q.limits?.medical || 100000,
-      maxCancellation: q.limits?.cancellation || 5000,
+      pricePerTraveler: q.price?.amount ?? 0,
+      totalPrice: (q.price?.amount ?? 0) * params.travelers,
+      currency: q.price?.currency ?? 'USD',
+      highlights: (q.benefits || []).map((b: any) => b.name),
+      maxMedical: q.limits?.medical ?? 100000,
+      maxCancellation: q.limits?.cancellation ?? 5000,
       quoteRef: q.id || '',
     }));
   } catch (err) {

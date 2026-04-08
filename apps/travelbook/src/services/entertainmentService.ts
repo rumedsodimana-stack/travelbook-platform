@@ -88,7 +88,7 @@ export async function searchActivities(params: ActivitySearchParams): Promise<Us
       verified: true,
       provider: 'Entertainment partner',
       location: params.destName || 'Popular destination',
-      avatar: a.imageUrl,
+      avatar: a.imageUrl || `https://picsum.photos/seed/${a.id}/200`,
     }));
   } catch (err) {
     console.error('[entertainmentService] API error, falling back to mock:', err);

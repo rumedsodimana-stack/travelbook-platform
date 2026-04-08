@@ -890,18 +890,20 @@ const AttendanceView = () => {
 };
 
 const ShiftSchedulingView = () => {
-  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-
   const shiftCounts = useMemo(
-    () =>
-      days.map((_, di) =>
+    () => {
+      const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+      return days.map((_, di) =>
         shiftStaff.filter((s) => {
           const code = weeklyRoster[s.name]?.[di];
           return code !== "O" && code !== "L" && code !== undefined;
         }).length
-      ),
+      );
+    },
     []
   );
+
+  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   return (
     <motion.div

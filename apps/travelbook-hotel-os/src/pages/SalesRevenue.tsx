@@ -707,10 +707,10 @@ function ReservationsPipeline() {
     });
   }, [sourceFilter, statusFilter]);
 
+  const [searchQuery, setSearchQuery] = useState("");
+
   const totalValue = filtered.reduce((s, r) => s + r.value, 0);
   const confirmed = filtered.filter((r) => r.status === "Confirmed").length;
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search pipeline..." />}
@@ -915,13 +915,13 @@ function CorporateAccounts() {
 
 function RateManagement() {
   const [activeTab, setActiveTab] = useState<"codes" | "bar" | "promotions">("codes");
+  const [searchQuery, setSearchQuery] = useState("");
+
   const tabs = [
     { key: "codes" as const, label: "Rate Codes" },
     { key: "bar" as const, label: "BAR Grid" },
     { key: "promotions" as const, label: "Promotions" },
   ];
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search rates..." />}
@@ -1097,11 +1097,11 @@ function ChannelManager() {
     setTimeout(() => setSyncing(null), 1800);
   }
 
+  const [searchQuery, setSearchQuery] = useState("");
+
   const totalBookings = channels.reduce((s, c) => s + c.bookingsMtd, 0);
   const totalRevenue = channels.reduce((s, c) => s + c.revenueMtd, 0);
   const connected = channels.filter((c) => c.status === "Connected").length;
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search channels..." />}
@@ -1293,6 +1293,8 @@ function Forecast() {
 
 function GroupQuotes() {
   const [statusFilter, setStatusFilter] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
+
   const statuses = ["All", "Prospect", "Proposal Sent", "Negotiating", "Confirmed", "Lost"];
 
   const filtered = useMemo(() => {
@@ -1302,8 +1304,6 @@ function GroupQuotes() {
   const totalValue = filtered.reduce((s, g) => s + g.totalValue, 0);
   const confirmed = groupQuotes.filter((g) => g.status === "Confirmed").reduce((s, g) => s + g.totalValue, 0);
   const pipeline = groupQuotes.filter((g) => ["Prospect", "Proposal Sent", "Negotiating"].includes(g.status)).reduce((s, g) => s + g.totalValue, 0);
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search quotes..." />}
@@ -1651,10 +1651,10 @@ function GroupManagementView() {
     }
   };
 
+  const [searchQuery, setSearchQuery] = useState("");
+
   const pickupPercentage = (picked: number, blocked: number) =>
     Math.round((picked / blocked) * 100);
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search groups..." />}

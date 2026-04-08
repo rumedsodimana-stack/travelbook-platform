@@ -45,11 +45,11 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ business, on
   const isCar = categoryLower.includes('car') || categoryLower.includes('transport');
   const isExperience = categoryLower.includes('tour') || categoryLower.includes('entertainment') || categoryLower.includes('experience') || categoryLower.includes('activity');
   const hotelRoomOptions = business.providerPage?.roomTypes || [];
-  const [selectedRoomId, setSelectedRoomId] = useState(hotelRoomOptions[0]?.id || '');
+  const [selectedRoomId, setSelectedRoomId] = useState(hotelRoomOptions[0]?.id ?? '');
   const [selectedGds, setSelectedGds] = useState(business.providerPage?.connectionLabel || 'Sabre');
 
   const type: Booking['type'] = isEvent || isExperience ? 'event' : (isHotel ? 'hotel' : (isDining ? 'restaurant' : (isFlight ? 'flight' : 'car')));
-  const selectedRoom = hotelRoomOptions.find((room) => room.id === selectedRoomId) || hotelRoomOptions[0];
+  const selectedRoom = hotelRoomOptions.find((room) => room.id === selectedRoomId) ?? hotelRoomOptions[0];
 
   const getNightCount = () => {
     if (!isHotel) {

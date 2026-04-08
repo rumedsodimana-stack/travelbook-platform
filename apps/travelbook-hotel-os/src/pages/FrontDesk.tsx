@@ -275,6 +275,7 @@ function FrontDeskOverview({ aiEnabled }: { aiEnabled: boolean }) {
 function FrontDeskRooms() {
   const [selectedFloor, setSelectedFloor] = React.useState("Ground");
   const [selectedRoom, setSelectedRoom] = React.useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const floors = ["Ground", "Floor 1", "Floor 2", "Floor 3"];
 
@@ -336,7 +337,6 @@ function FrontDeskRooms() {
 
   const selectedRoomData = selectedRoom ? mockRooms.find(r => r.number === selectedRoom) : null;
 
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search rooms..." />}
@@ -710,6 +710,7 @@ function FrontDeskReservations() {
   const [showNewBooking, setShowNewBooking] = React.useState(false);
   const [bookingStep, setBookingStep] = React.useState(1);
   const [statusFilter, setStatusFilter] = React.useState("All Reservations");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const [searchParams, setSearchParams] = React.useState({
     checkIn: "2024-10-12",
@@ -788,7 +789,6 @@ function FrontDeskReservations() {
     }
   };
 
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search reservations..." />}

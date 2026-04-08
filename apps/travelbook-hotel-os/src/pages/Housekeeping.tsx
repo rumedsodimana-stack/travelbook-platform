@@ -778,6 +778,8 @@ function TaskListView() {
 // ─── Supervisor Dashboard ─────────────────────────────────────────────────────
 
 function SupervisorDashboard() {
+  const [searchQuery, setSearchQuery] = useState("");
+
   const inspectionQueue = useMemo(() =>
     ROOMS.filter((r) => r.status === "Clean").map((r) => ({
       room: r.id,
@@ -789,8 +791,6 @@ function SupervisorDashboard() {
 
   const unassignedRooms = ROOMS.filter((r) => r.housekeeper === "Unassigned" && (r.status === "Dirty" || r.status === "Clean"));
   const availableStaff = STAFF.filter((s) => s.status === "Active");
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search team..." />}
@@ -921,6 +921,8 @@ function SupervisorDashboard() {
 // ─── Turndown Service ─────────────────────────────────────────────────────────
 
 function TurndownService() {
+  const [searchQuery, setSearchQuery] = useState("");
+
   const amenityChecklist = [
     "Bed turned down (60° fold)",
     "Pillow menu card placed",
@@ -935,8 +937,6 @@ function TurndownService() {
     "Turndown card left",
     "Do Not Disturb sign checked",
   ];
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search turndown..." />}
@@ -1392,12 +1392,12 @@ function InspectionChecklist() {
 // ─── Minibar Restocking ───────────────────────────────────────────────────────
 
 function MinibarRestocking() {
+  const [searchQuery, setSearchQuery] = useState("");
+
   const totalRevenue = MINIBAR.reduce((sum, m) => sum + m.revenue, 0);
   const pending = MINIBAR.filter((m) => m.status === "Pending").length;
   const completed = MINIBAR.filter((m) => m.status === "Completed").length;
   const noCharge = MINIBAR.filter((m) => m.status === "No Charge").length;
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search minibar..." />}

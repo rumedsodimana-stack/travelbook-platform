@@ -76,7 +76,7 @@ export async function searchEvents(params: EventSearchParams): Promise<User[]> {
       verified: true,
       provider: 'Event partner',
       location: `${ev.venue}, ${ev.city}`,
-      avatar: ev.imageUrl,
+      avatar: ev.imageUrl || `https://picsum.photos/seed/${ev.id}/200`,
     }));
   } catch (err) {
     console.error('[eventsService] API error, falling back to mock:', err);

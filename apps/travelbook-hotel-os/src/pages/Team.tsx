@@ -821,6 +821,7 @@ const AttendanceView = () => {
   const [dateFilter, setDateFilter] = React.useState("All");
   const [deptFilter, setDeptFilter] = React.useState("All");
   const [statusFilter, setStatusFilter] = React.useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const dates = useMemo(
     () => ["All", ...Array.from(new Set(attendanceRecords.map((r) => r.date))).sort().reverse()],
@@ -850,8 +851,6 @@ const AttendanceView = () => {
       absent: today.filter((r) => r.status === "Absent").length,
     };
   }, []);
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search attendance..." />}
@@ -938,6 +937,8 @@ const AttendanceView = () => {
 };
 
 const ShiftSchedulingView = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
   const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   const shiftCounts = useMemo(
@@ -950,8 +951,6 @@ const ShiftSchedulingView = () => {
       ),
     []
   );
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search shifts..." />}
@@ -1182,6 +1181,7 @@ const PayrollView = () => {
 const LeaveManagementView = () => {
   const [statusFilter, setStatusFilter] = React.useState("All");
   const [typeFilter, setTypeFilter] = React.useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const filtered = useMemo(
     () =>
@@ -1202,8 +1202,6 @@ const LeaveManagementView = () => {
   const totalDaysTaken = leaveRequests
     .filter((r) => r.status === "Approved")
     .reduce((s, r) => s + r.days, 0);
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search leave..." />}
@@ -1291,6 +1289,7 @@ const LeaveManagementView = () => {
 const TrainingView = () => {
   const [statusFilter, setStatusFilter] = React.useState("All");
   const [categoryFilter, setCategoryFilter] = React.useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const filtered = useMemo(
     () =>
@@ -1308,8 +1307,6 @@ const TrainingView = () => {
   const expiredCount = trainingRecords.filter((r) => r.status === "Expired").length;
   const dueSoonCount = trainingRecords.filter((r) => r.status === "Due Soon").length;
   const notCompletedCount = trainingRecords.filter((r) => r.status === "Not Completed").length;
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search training..." />}
@@ -1412,6 +1409,8 @@ const TrainingView = () => {
 };
 
 const PerformanceView = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
   const deptScores = useMemo(() => {
     const completed = performanceReviews.filter((r) => r.status === "Completed");
     const byDept: Record<string, number[]> = {};
@@ -1426,8 +1425,6 @@ const PerformanceView = () => {
       ),
     }));
   }, []);
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search performance..." />}
@@ -2046,6 +2043,7 @@ function OffboardingView() {
 
 function TimeClockView() {
   const [selectedDept, setSelectedDept] = React.useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const todayStats = [
     { label: "Clocked In Now", value: "32", icon: Clock, gradient: "from-emerald-400 to-emerald-500", sub: "active staff" },
@@ -2077,8 +2075,6 @@ function TimeClockView() {
   };
 
   const filtered = selectedDept === "All" ? attendanceData : attendanceData.filter((r) => r.dept === selectedDept);
-
-  const [searchQuery, setSearchQuery] = useState("");
   return (
     <PageShell
       search={<SectionSearch value={searchQuery} onChange={setSearchQuery} placeholder="Search time clock..." />}
